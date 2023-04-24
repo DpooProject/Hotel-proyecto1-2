@@ -47,6 +47,16 @@ public class Console {
 		Login log= new Login();
 		String tipo =log.hacerlogin(login,password,Userdata);
 		System.out.println(tipo);
+		
+		if (tipo.equals("admin")) {
+		    AdminConsole adminMenu = new AdminConsole();
+		    adminMenu.ejecutar_proceso();
+		} else if (tipo.equals("general")) {
+		    EmployerConsole generalMenu = new EmployerConsole();
+		    generalMenu.ejecutar_proceso();
+		} else if (tipo.equals("recepcion")) {
+		    RecepcionistConsole receptionMenu = new RecepcionistConsole ();
+		    receptionMenu.ejecutar_proceso();}
 
 		// Cerrar el objeto Scanner
 		scanner.close();
