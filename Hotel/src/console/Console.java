@@ -1,4 +1,3 @@
-//4-27-23
 package console;
 //importar dependencias
 import java.io.IOException;

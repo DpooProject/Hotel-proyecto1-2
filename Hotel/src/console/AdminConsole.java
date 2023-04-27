@@ -20,7 +20,6 @@ public class AdminConsole {
 		System.out.println("5. Editar menu del restaurante");
 		System.out.println("6. Cargar las tarifas por tipo de cuarto");
 		System.out.println("7. Cerrar sesion\n");
-		ejecutar_proceso();
 	}
 
 	public void ejecutar_proceso() {
