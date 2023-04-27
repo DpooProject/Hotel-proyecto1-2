@@ -1,29 +1,25 @@
 package console;
-
+//importar dependencias
 import java.io.IOException;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
+import java.util.Scanner;
+//importar clases
 import prosecution.GeneralData;
 import prosecution.Loader;
 import prosecution.Login;
 
 public class Console {
-
-	public static void main(String[] args) {
-		Console consola = new Console();
-		consola.iniciar();
-	}
-	
-	
-
 	public void iniciar() {
-		//Crea los datos de los usuarios vacios
-		GeneralData Userdata = new GeneralData();
-		
 		//Carga los logins
 		Loader loader = new Loader();
 	    try {
-			Userdata = loader.readCSV("src/Data/Logins.csv");
+	    	loader.readCSV("src/Data/Logins.csv");
 		} catch (IOException e) {
 			
 			e.printStackTrace();
@@ -32,22 +28,18 @@ public class Console {
 	    
 		// Saludar al usuario
 		System.out.println("¡Bienvenido!");
-
-		// Crear un objeto Scanner para leer la entrada del usuario
-		Scanner scanner = new Scanner(System.in);
-
-		// Pedir al usuario su login
-		System.out.print("Por favor, ingrese su login: ");
-		String login = scanner.nextLine();
-
-		// Pedir al usuario su contraseña
-		System.out.print("Por favor, ingrese su contraseña: ");
-		String password = scanner.nextLine();
-
+		String flag="";
 		Login log= new Login();
-		String tipo =log.hacerlogin(login,password,Userdata);
-		System.out.println(tipo);
-		
+		while (flag != "erróneo, intentelo de nuevo") {
+			//pide login
+			String login = input("Por favor, ingrese su login");
+
+			// Pedir al usuario su contraseña
+			String password = input("Por favor, ingrese su contraseña");
+			System.out.println(login);
+			System.out.println(password);
+			String tipo =log.hacerlogin(login,password);
+			System.out.println(tipo);
 		if (tipo.equals("admin")) {
 		    AdminConsole adminMenu = new AdminConsole();
 		    adminMenu.ejecutar_proceso();
@@ -57,9 +49,23 @@ public class Console {
 		} else if (tipo.equals("recepcion")) {
 		    RecepcionistConsole receptionMenu = new RecepcionistConsole ();
 		    receptionMenu.ejecutar_proceso();}
-
-		// Cerrar el objeto Scanner
-		scanner.close();
+	}
+	}
+	//implementacion de input
+	public static String input(String mensaje) {
+		try {
+			System.out.print(mensaje + ": ");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			return reader.readLine();
+		} catch (IOException e) {
+			System.out.println("Error leyendo de la consola");
+			e.printStackTrace();
+		}
+		return null;
+	}
+	public static void main(String[] args) {
+		Console consola = new Console();
+		consola.iniciar();
 	}
 
 }

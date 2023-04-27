@@ -13,7 +13,7 @@ import console.Console;
 public class Loader {
  
 
-    public GeneralData readCSV(String fileName) throws IOException {
+    public void readCSV(String fileName) throws IOException {
     	GeneralData general = new GeneralData();
         BufferedReader reader = new BufferedReader(new FileReader(fileName));
         String line;
@@ -32,7 +32,6 @@ public class Loader {
         
         general.pri();
         
-      return general;
         
     }
 

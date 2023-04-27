@@ -7,10 +7,9 @@ import java.util.Map;
 
 public class GeneralData {
 	
-	private Map<String, List<String>> userData;
+	private static Map<String, List<String>> userData= new HashMap<>();;
 	
 	public GeneralData() {
-        userData = new HashMap<>();
         
     }
 	
@@ -26,14 +25,16 @@ public class GeneralData {
 		}
 	}
 	
-	public String getUserType(String username, String password) {
-	    if (userData.containsKey(username)) {
+	public String getUserType(String username, String password) { //preguntar al monitor
+	    
+		if (userData.containsKey(username)) {
+	    	
 	        List<String> userValues = userData.get(username);
 	        if (userValues.get(0).equals(password)) {
 	            return userValues.get(1);
 	        }
 	    }
-	    return "erróneo";
+	    return "erróneo, intentelo de nuevo";
 	}
 	
 
