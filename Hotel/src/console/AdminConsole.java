@@ -31,6 +31,7 @@ public class AdminConsole {
 				int opcion_seleccionada = Integer.parseInt(Console.input("Por favor seleccione una opción"));
 				if (opcion_seleccionada == 1) {
 					System.out.println("cargando...");
+					ejecutarCrearHabitacion();
 				} else if (opcion_seleccionada == 2) {
 					System.out.println("cargando...");
 				} else if (opcion_seleccionada == 3)

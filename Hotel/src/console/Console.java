@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 //importar clases
 import prosecution.GeneralData;
-import prosecution.Loader;
+import prosecution.UserDataController;
 import prosecution.Login;
 
 public class Console {
 	public void iniciar() {
 		//Carga los logins
-		Loader loader = new Loader();
+		UserDataController loader = new UserDataController();
 	    try {
 	    	loader.readCSV("src/Data/Logins.csv");
 		} catch (IOException e) {

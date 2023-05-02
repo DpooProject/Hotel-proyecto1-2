@@ -10,8 +10,35 @@ import java.util.Map;
 
 import console.Console;
 
-public class Loader {
- 
+public class UserDataController {
+	//Attributes
+	private static Map<String, List<String>> userData= new HashMap<>();
+	
+	//Methods
+	public void addusers(String name, List<String> userDataList) {
+		userData.put(name, userDataList);
+		
+	}
+	public void print() {
+		for (Map.Entry<String, List<String>> entry : userData.entrySet()) {
+		    String key = entry.getKey();
+		    List<String> value = entry.getValue();
+		    System.out.println(key + " -> " + value);
+		}
+	}
+	public String getUserType(String username, String password) { //preguntar al monitor
+	    
+		if (userData.containsKey(username)) {
+	    	
+	        List<String> userValues = userData.get(username);
+	        if (userValues.get(0).equals(password)) {
+	            return userValues.get(1);
+	        }
+	    }
+	    return "erróneo, intentelo de nuevo";
+	}
+	
+
 
     public void readCSV(String fileName) throws IOException {
     	GeneralData general = new GeneralData();
