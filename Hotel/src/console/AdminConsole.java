@@ -57,33 +57,14 @@ public class AdminConsole {
 	
 	public void ejecutarCrearHabitacion() {
 		String id=Console.input("Ingrese el id de la nueva habitacion");
-		String ubication=Console.input("Ingrese la ubicacion de la nueva habitacion");
+		String ubication=Console.input("Ingrese la ubicacion de la nueva habitacion (Primer piso, Segundo piso, Tercer piso)");
 		String type=Console.input("Ingrese el tipo de habitacion (Suite, Estandar o Suite doble ) de la nueva habitacion");
-		String specials=Console.input("Ingrese descripcion de caracteristicas especiales(balcon,vista,cocina integrada");
-		int numbersbed=Integer.parseInt(Console.input("Ingrese el numero de camas de la habitacion"));
-		ArrayList<Integer> beds=new ArrayList<>();		
-		int i=1;
-		while(i<=numbersbed ) {
-			System.out.println("1. Big");
-			System.out.println("2. Medium");
-			System.out.println("3. Small");
-			int size=Integer.parseInt(Console.input("Ingrese una opcion para el tamaño de la "+i+" cama de la habitacion (Big,Medium,Small)"));
-			if (size != 1 & size !=2 & size !=3) {
-				System.out.println("Ingrese una opcion correcta");
-			}
-			else{
-				beds.add(size);
-				System.out.println(beds); 
-			    i=i+1;
-			}
-		}
-		i=1;
-		String[] sizeid = new String[beds.size()];
-	for (Integer n:beds) {
-		sizeid[i-1]=Integer.toString(n);
-		i=i+1;
-	}
-		AdminProcess.createroom(id,ubication,type,specials,beds,sizeid);
+		Boolean balcon=Boolean.parseBoolean(Console.input("¿Quiere que su habitacion tenga balcón?"));
+		Boolean vista=Boolean.parseBoolean(Console.input("¿Quiere que su habitacion tenga vista?"));
+		Boolean cocina=Boolean.parseBoolean(Console.input("¿Quiere que su habitacion tenga cocina integrada?"));
+		int numberbeds=Integer.parseInt(Console.input("Ingrese el numero de camas de la habitacion"));
+		String size=Console.input("Ingrese el tamaño de la/s habitacion/es (Big, Medium, Small) ");
+		AdminProcess.createroom(id,ubication,type,balcon,vista,cocina,numberbeds,size);
 		System.out.println("se ha creado la nueva habitacion en el inventario correctamente");		
 		}
 

@@ -19,7 +19,7 @@ public class Console {
 		//Carga los logins
 		UserDataController loader = new UserDataController();
 	    try {
-	    	loader.readCSV("src/Data/Logins.csv");
+	    	loader.readCSV("src/Memory/Logins.csv");
 		} catch (IOException e) {
 			
 			e.printStackTrace();
