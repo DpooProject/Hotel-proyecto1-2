@@ -1,21 +1,4 @@
-﻿id,ubication,type,balcon,vista,cocina,numberbeds,size
-01,piso de arriba,Suite,true,true,2,big
-02,planta baja,Suite doble,true,true,2,big
-03,piso de arriba,Suite,balcon,true,true,2,big
-04,planta baja,Suite doble,true,true,2,big
-05,piso de arriba,Suite doble,true,true,2,big
-06,planta baja,Suite,terraza,true,true,2,big
-07,piso de arriba,Estandar,true,true,2,big
-08,planta baja,Estandar,true,true,2,big
-09,piso de arriba,Estandar,true,true,2,big
-10,planta baja,Suite doble,true,true,2,big
-11,piso de arriba,Suite,true,true,2,big
-12,planta baja,Estandar,true,true,2,big
-13,piso de arriba,Suite doble,true,true,2,big
-14,planta baja,Suite doble,true,true,2,big
-15,piso de arriba,Estandar,true,true,2,big
-16,planta baja,Suite,true,true,2,big
-17,piso de arriba,Suite doble,true,true,2,big
-18,planta baja,Suite doble,true,true,2,big
-19,piso de arriba,Estandar,true,true,2,big
-20,planta baja,Suite,jacuzzi,true,true,2,big
+﻿id,ubication,type,balcony,view,kitchen,bedsNumber,size
+01,piso de arriba,Suite,true,true,true,2,big
+02,planta baja,Suite doble,true,true,true,2,big
+

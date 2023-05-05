@@ -11,21 +11,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 //importar clases
 import prosecution.GeneralData;
+import prosecution.InventoryController;
 import prosecution.UserDataController;
 import prosecution.Login;
 
 public class Console {
+	Begginer beginner= new Begginer();
 	public void iniciar() {
 		//Carga los logins
-		UserDataController loader = new UserDataController();
-	    try {
-	    	loader.readCSV("src/Memory/Logins.csv");
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
-	    
-	    
+		beginner.beginLogin();
+		InventoryController inveCont=beginner.beginInventory();
 		// Saludar al usuario
 		System.out.println("¡Bienvenido!");
 		String flag="";
@@ -41,7 +36,7 @@ public class Console {
 			String tipo =log.hacerlogin(login,password);
 			System.out.println(tipo);
 		if (tipo.equals("admin")) {
-		    AdminConsole adminMenu = new AdminConsole();
+		    AdminConsole adminMenu = new AdminConsole(inveCont);
 		    adminMenu.ejecutar_proceso();
 		} else if (tipo.equals("general")) {
 		    EmployerConsole generalMenu = new EmployerConsole();
