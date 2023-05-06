@@ -21,4 +21,15 @@ public class Inventory {
 		return inventory;
 		
 	}
+	public void addRoom(String id, Room newRoom) {
+		inventory.put(null, null);
+	}
+	public void printKeys() {
+		for (String idd : inventory.keySet()) {
+			Room habitacion = inventory.get(idd);
+			String tipo = habitacion.getType();
+			String ubicacion = habitacion.getUbication();
+			System.out.println("Habitación " + idd + ": " + tipo + ", " + ubicacion);
+		}
+	}
 }

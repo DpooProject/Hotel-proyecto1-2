@@ -52,7 +52,7 @@ public class InventoryController {
 		}
 		
 		this.inventory = Inventory.getInventory(rooms);
-
+		inventory.printKeys();
 	}
 	// agregar habitacion
 
@@ -60,16 +60,40 @@ public class InventoryController {
 			Boolean kitchen, int numberbeds, String size) {
 		Room newRoom= new Room(id,ubication,type,  balcony,  view,
 				kitchen, numberbeds,  size);
-		HashMap<String, Room> rooms=inventory.getInstance();
-		rooms.put(id, newRoom);
-		for (String idd : rooms.keySet()) {
-			Room habitacion = rooms.get(idd);
-			String tipo = habitacion.getType();
-			String ubicacion = habitacion.getUbication();
-			System.out.println("Habitación " + idd + ": " + tipo + ", " + ubicacion);
-		}
+		
+		inventory.addRoom(id, newRoom);
+		inventory.printKeys();
 	}
+	//añadir habitaciones con archivo csv
+	public void addWithCsv(String FileName) {
+		String csvFile = "src/Memory/"+FileName+".csv";
+		String line;
+		String csvSplitBy = ",";
 
+		try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+			// Ignorar la primera línea (encabezado)
+			br.readLine();
+
+			while ((line = br.readLine()) != null) {
+				if (!line.isEmpty()) { // Verificar si la línea no está vacía
+				
+				String[] data = line.split(csvSplitBy);
+				String id = data[0];
+				String ubication = data[1];
+				String type = data[2];
+				Boolean balcony = Boolean.parseBoolean(data[3]);
+				Boolean view = Boolean.parseBoolean(data[4]);
+				Boolean kitchen = Boolean.parseBoolean(data[5]);
+				int bedsNumber = Integer.parseInt(data[6]);
+				String size = data[7];
+				Room newRoom = new Room(id, ubication, type, balcony, view, kitchen, bedsNumber, size);
+				inventory.addRoom(id, newRoom);
+			}
+		} }catch (IOException e) {
+			e.printStackTrace();
+		}
+		inventory.printKeys();
+	}
 	public void update() {
 	    String csvFile = "src/Memory/inventario.csv";
 	    String csvHeader = "id,ubication,type,balcony,view,kitchen,bedsNumber,size\n";

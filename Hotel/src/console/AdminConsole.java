@@ -10,6 +10,7 @@ import prosecution.InventoryController;
 
 public class AdminConsole {
 	InventoryController inveCont;
+	AdminProcess adminProcc=new AdminProcess();
 	Boolean updateInventory=false;
 	// constructor
 	public AdminConsole(InventoryController inveCont) {
@@ -21,8 +22,7 @@ public class AdminConsole {
 		System.out.println("Menu de Admin");
 		System.out.println("\nSeleccione una opción:\n");
 		System.out.println("1. Crear una nueva habitacion en el invenatario");
-		System.out.println(
-				"2. Cargar nuevas habitaciones (o actualizar existentes) en el inventario con un archivo .CSV");
+		System.out.println("2. Cargar nuevas habitaciones (o actualizar existentes) en el inventario con un archivo .CSV");
 		System.out.println("3. Cambiar tarifa de los servicios del hotel");
 		System.out.println("4. Editar menu del restaurante");
 		System.out.println("5. Cargar las tarifas por tipo de cuarto");
@@ -36,11 +36,13 @@ public class AdminConsole {
 				showMenu();
 
 				int opcion_seleccionada = Integer.parseInt(Console.input("Por favor seleccione una opción"));
+				System.out.println(opcion_seleccionada);
 				if (opcion_seleccionada == 1) {
 					System.out.println("cargando...");
 					executeCreateRoom();
 				} else if (opcion_seleccionada == 2) {
-					System.out.println("cargando...");
+					System.out.println("seleccionaste la 2");
+					executeAddWithCsv();
 				} else if (opcion_seleccionada == 3)
 					System.out.println("cargando...");
 				else if (opcion_seleccionada == 4)
@@ -72,11 +74,16 @@ public class AdminConsole {
 		Boolean kitchen = Boolean.parseBoolean(Console.input("¿Quiere que su habitacion tenga cocina integrada?"));
 		int numberbeds = Integer.parseInt(Console.input("Ingrese el numero de camas de la habitacion"));
 		String size = Console.input("Ingrese el tamaño de la/s habitacion/es (Big, Medium, Small) ");
-		AdminProcess.createroom(inveCont, id, ubication, type, balcony, view, kitchen, numberbeds, size);
+		adminProcc.createroom(inveCont, id, ubication, type, balcony, view, kitchen, numberbeds, size);
 		System.out.println("se ha creado la nueva habitacion en el inventario correctamente");
 		this.updateInventory=true;
 	}
-
+	public void executeAddWithCsv() {
+		String csvName = Console.input("Ingrese el nombre del archivo csv");
+		adminProcc.addWithCsv(inveCont,csvName);
+		this.updateInventory=true;
+		
+	}
 	public void closeApp() {
 		if (this.updateInventory==true) {
 			inveCont.update();
