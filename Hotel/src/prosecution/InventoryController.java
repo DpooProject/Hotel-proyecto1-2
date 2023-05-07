@@ -9,10 +9,10 @@ import java.io.BufferedWriter;
 
 import model.Inventory;
 import model.Room;
-
+import model.Reservation;
 public class InventoryController {
-	Inventory inventory; //aqui queda guardado
-
+	static Inventory inventory; //aqui queda guardado
+	public static HashMap<String, Reservation> reservationsInventory;
 	// methods
 	public void loadinventory() {
 		String csvFile = "src/Memory/inventario.csv";
@@ -82,6 +82,72 @@ public class InventoryController {
 			e.printStackTrace();
 		}
 	}
+	//recepcionist
+	public void loadReservations(){
+        String csvFile = "src/Memory/Reservasiones.csv";
+        String line;
+        String csvSplitBy = ",";
+        HashMap<String, Reservation> reservationsInventory = new HashMap<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            // Ignorar la primera línea (encabezado)
+            br.readLine();
+
+            while ((line = br.readLine()) != null) {
+                String[] datos = line.split(csvSplitBy);
+
+                String id = datos[0];
+                String nombre = datos[1];
+                int cantidad = Integer.parseInt(datos[2]);
+                int dias = Integer.parseInt(datos[3]);
+                int dia = Integer.parseInt(datos[4]);
+                int mes = Integer.parseInt(datos[5]);
+                int ano = Integer.parseInt(datos[6]);
+
+                Reservation reserva = new Reservation(id, nombre, cantidad, dias, dia, mes, ano, false, false);
+                reservationsInventory.put(id, reserva);
+                System.out.println(id);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        InventoryController.reservationsInventory=reservationsInventory;
+
+}
+	//////////////////// 
+	///update del recepcionista 
+	public void recepUpdate() {
+	    String csvFile = "src/Memory/Reservasiones.csv";
+	    String csvHeader = "id,nombre,cantidad,dias,dia,mes,ano\n";
+	    StringBuilder csvContent = new StringBuilder(csvHeader);
+
+	    for (Reservation reservation : reservationsInventory.values()) {
+	    	String id = reservation.getId();
+	    	String nombre = reservation.getNombre();
+	        int cantidad = reservation.getCantidad();
+	        int dias = reservation.getDias();
+	        int dia = reservation.getDia();
+	        int mes = reservation.getMes();
+	        int ano = reservation.getAno();
+
+	        
+	        csvContent.append(id).append(",")
+	        		   .append(nombre).append(",")
+	                   .append(cantidad).append(",")
+	                   .append(dias).append(",")
+	                   .append(dia).append(",")
+	                   .append(mes).append(",")
+	                   .append(ano).append("\n");
+
+	    }
+
+	    try (BufferedWriter bw = new BufferedWriter(new FileWriter(csvFile))) {
+	        bw.write(csvContent.toString());
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+	////////////////////////////
 	public void update() {
 	    String csvFile = "src/Memory/inventario.csv";
 	    String csvHeader = "id,ubication,type,balcony,view,kitchen,bedsNumber,size\n";
@@ -113,6 +179,6 @@ public class InventoryController {
 	        e.printStackTrace();
 	    }
 	}
-
+	
 
 }

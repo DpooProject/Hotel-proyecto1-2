@@ -25,6 +25,7 @@ public class Console {
 		InventoryController inveCont=beginner.beginInventory();
 		ServicesInventoryController servCont=beginner.beginServiceInventory();
 		RestaurantMenuController restCont=beginner.beginRestaurantMenu();
+		beginner.beginReservations();
 		// Saludar al usuario
 		System.out.println("¡Bienvenido!");
 		String flag="";
@@ -46,7 +47,7 @@ public class Console {
 		    EmployerConsole generalMenu = new EmployerConsole();
 		    generalMenu.ejecutar_proceso();
 		} else if (tipo.equals("recepcion")) {
-		    RecepcionistConsole receptionMenu = new RecepcionistConsole ();
+		    RecepcionistConsole receptionMenu = new RecepcionistConsole (inveCont);
 		    receptionMenu.ejecutar_proceso();}
 	}
 	}

@@ -1,6 +1,7 @@
 package console;
 
 import prosecution.AdminProcess;
+import prosecution.InventoryController;
 import prosecution.RecepcionistProcess;
 
 import java.sql.Date;
@@ -8,6 +9,14 @@ import java.sql.Date;
 import model.Room;
 
 public class RecepcionistConsole {
+	//Attributes
+	InventoryController inveCont;
+	Boolean updateRes=false;
+	//Constructor
+	public RecepcionistConsole(InventoryController inveCont) {
+		super();
+		this.inveCont = inveCont;
+	}
 
 	public void showMenu() {
 		
@@ -45,6 +54,7 @@ public class RecepcionistConsole {
 					System.out.println("cargando...");
 				}else if (opcion_seleccionada == 7) {
 					System.out.println("Cerrando su sesion ...");
+					closeapp();
 					continuar = false;
 				} else {
 					System.out.println("Por favor seleccione una opción válida.");
@@ -56,30 +66,32 @@ public class RecepcionistConsole {
 
 	}
 
+
 	public void ejecutarConsultarHabitacion() {
 		String id=Console.input("Ingrese el id de la habitacion que desea consultar");
 		Room room = RecepcionistProcess.consultarHabitación(id);
 		System.out.println("El id es: " + room.getId());
-		System.out.println("La ubicación es: " + room.getUbicacion());
-		System.out.println("El tipo de habitación es: " + room.getTipo());
-		System.out.println("Tiene balcón: " + room.getBalcon());
-		System.out.println("Tiene vista: " + room.getVista());
-		System.out.println("Tiene cocina: " + room.getCocina());
-		System.out.println("Número de camas: " + room.getNumeroCamas());
-		System.out.println("Tamaño de las camas: " + room.getTamano());
-
+		System.out.println("La ubicación es: " + room.getUbication());
+		System.out.println("El tipo de habitación es: " + room.getType());
+		System.out.println("Tiene balcón: " + room.getBalcony());
+		System.out.println("Tiene vista: " + room.getView());
+		System.out.println("Tiene cocina: " + room.getKitchen());
+		System.out.println("Número de camas: " + room.getBedsnumber());
+		System.out.println("Tamaño de las camas: " + room.getSize());
+		
 		}
 
 	public void ejecutarReservarHabitacion(){
 		String nombre=Console.input("Ingrese su nombre");
+		String id=Console.input("Ingrese el id de la reservacion");
 		int cantidad=Integer.parseInt(Console.input("Ingrese la cantidad de personas"));
 		int dias=Integer.parseInt(Console.input("Ingrese la cantidad de dias"));
 		int dia=Integer.parseInt(Console.input("Ingrese el día de la reserva"));
 		int mes=Integer.parseInt(Console.input("Ingrese el mes de la reserva"));
 		int ano=Integer.parseInt(Console.input("Ingrese el año de la reserva"));
-		RecepcionistProcess.reservarHabitacion(nombre, cantidad, dias, dia, mes, ano);
+		RecepcionistProcess.reservarHabitacion(id,nombre, cantidad, dias, dia, mes, ano);
 		System.out.println("La reservación fue realizada: ");
-
+		this.updateRes=true;
 		}
 
 	public void ejecutarCancelarReserva(){
@@ -92,6 +104,13 @@ public class RecepcionistConsole {
 			System.out.println("La reserva fue cancelada");}
 		else{
 			System.out.println("La reserva no fue realizada debido a que faltan menos de 2 días para el ingreso");}
-			
+		this.updateRes=true;	
+	}
+
+	private void closeapp() {
+		if(this.updateRes==true) {
+			inveCont.recepUpdate();
+		}
+		
 	}
 }

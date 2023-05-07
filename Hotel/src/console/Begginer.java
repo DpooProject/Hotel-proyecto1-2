@@ -23,6 +23,13 @@ public class Begginer {
 		restCont.loadMenu();
 		return restCont;
 	}
+	//recepcionist
+	public InventoryController beginReservations() {
+		inveCont.loadReservations();
+		return inveCont;
+	}
+	
+	
 	public void beginLogin() {
 		UserDataController loader = new UserDataController();
 		try {

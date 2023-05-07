@@ -1,3 +1,4 @@
-﻿id;nombre;cantidad;dias;dia;mes;ano
-1;Alejandro;4;2;1;1;2023
-2;Yesid;1;4;2;3;2023
+id,nombre,cantidad,dias,dia,mes,ano
+1,yesid,4,2,1,1,2023
+2,alejo,1,4,2,3,2023
+pr1,alejo,3,3,15,5,2001
