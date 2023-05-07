@@ -1,7 +1,9 @@
 package prosecution;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -10,8 +12,12 @@ import model.Room;
 import model.Service;
 import model.ServicesInventory;
 public class ServicesInventoryController {
+	//Attributes
 	ServicesInventory servInventory;
-
+	//getters 
+	public ServicesInventory getServInventory() {
+		return servInventory;
+	}
 	// methods
 	public void loadServiceinventory() {
 		String csvFile = "src/Memory/listServices.csv";
@@ -36,9 +42,39 @@ public class ServicesInventoryController {
 			e.printStackTrace();
 		}
 		this.servInventory = ServicesInventory.getServiceInventory(services);
-		servInventory.printKeys();
-		
-		
-
 	}
+	public void changeRate(String name, int rate) {
+		Service auxservice= servInventory.getService(name);
+		auxservice.setRate(rate);
+		servInventory.updateService(name, auxservice); 
+		
+	}
+	public void update() {
+	    String csvFile = "src/Memory/listServices.csv";
+	    String csvHeader = "Service,rate\n";
+	    StringBuilder csvContent = new StringBuilder(csvHeader);
+	    for (Service service : servInventory.getInstance().values()) {
+	        String serviceName = service.getName();
+	        int rate = service.getRate();        
+	        csvContent.append(serviceName).append(",")
+	                   .append(rate).append("\n");
+
+	    }
+
+	    try (BufferedWriter bw = new BufferedWriter(new FileWriter(csvFile))) {
+	        bw.write(csvContent.toString());
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+	//Auxiliary methods
+	public void printServicesInventory() {
+		servInventory.printKeys();
+	}
+
+	/*
+	 * public int inventoryLength() { return
+	 * servInventory.getInstance().keySet().size(); }
+	 */
+ 
 }

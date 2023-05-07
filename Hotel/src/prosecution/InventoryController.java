@@ -11,7 +11,7 @@ import model.Inventory;
 import model.Room;
 
 public class InventoryController {
-	Inventory inventory;
+	Inventory inventory; //aqui queda guardado
 
 	// methods
 	public void loadinventory() {
@@ -41,18 +41,8 @@ public class InventoryController {
 			}
 		} }catch (IOException e) {
 			e.printStackTrace();
-		}
-
-		// Prueba: imprimir las habitaciones
-		for (String id : rooms.keySet()) {
-			Room habitacion = rooms.get(id);
-			String tipo = habitacion.getType();
-			String ubicacion = habitacion.getUbication();
-			System.out.println("Habitación " + id + ": " + tipo + ", " + ubicacion);
-		}
-		
+		}		
 		this.inventory = Inventory.getInventory(rooms);
-		inventory.printKeys();
 	}
 	// agregar habitacion
 
@@ -62,7 +52,6 @@ public class InventoryController {
 				kitchen, numberbeds,  size);
 		
 		inventory.addRoom(id, newRoom);
-		inventory.printKeys();
 	}
 	//añadir habitaciones con archivo csv
 	public void addWithCsv(String FileName) {
@@ -87,12 +76,11 @@ public class InventoryController {
 				int bedsNumber = Integer.parseInt(data[6]);
 				String size = data[7];
 				Room newRoom = new Room(id, ubication, type, balcony, view, kitchen, bedsNumber, size);
-				inventory.addRoom(id, newRoom);
+				this.inventory.addRoom(id, newRoom);
 			}
 		} }catch (IOException e) {
 			e.printStackTrace();
 		}
-		inventory.printKeys();
 	}
 	public void update() {
 	    String csvFile = "src/Memory/inventario.csv";

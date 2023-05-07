@@ -14,6 +14,8 @@ import prosecution.GeneralData;
 import prosecution.InventoryController;
 import prosecution.UserDataController;
 import prosecution.Login;
+import prosecution.RestaurantMenuController;
+import prosecution.ServicesInventoryController;
 
 public class Console {
 	Begginer beginner= new Begginer();
@@ -21,6 +23,8 @@ public class Console {
 		//Carga los logins
 		beginner.beginLogin();
 		InventoryController inveCont=beginner.beginInventory();
+		ServicesInventoryController servCont=beginner.beginServiceInventory();
+		RestaurantMenuController restCont=beginner.beginRestaurantMenu();
 		// Saludar al usuario
 		System.out.println("¡Bienvenido!");
 		String flag="";
@@ -36,7 +40,7 @@ public class Console {
 			String tipo =log.hacerlogin(login,password);
 			System.out.println(tipo);
 		if (tipo.equals("admin")) {
-		    AdminConsole adminMenu = new AdminConsole(inveCont);
+		    AdminConsole adminMenu = new AdminConsole(inveCont,servCont,restCont);
 		    adminMenu.ejecutar_proceso();
 		} else if (tipo.equals("general")) {
 		    EmployerConsole generalMenu = new EmployerConsole();

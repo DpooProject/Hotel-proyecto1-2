@@ -25,4 +25,11 @@ public class ServicesInventory {
 			System.out.println("Servicio: " + ServiceName + " Precio:  " + Integer.toString(rate));
 		}
 	}
+	public Service getService(String serviceName) {
+		return serviceInventory.get(serviceName);
+	}
+	public void updateService(String serviceName,Service updatedService) {
+		serviceInventory.put(serviceName,updatedService);
+	}
+	
 }

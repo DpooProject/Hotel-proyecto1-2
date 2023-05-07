@@ -1,0 +1,20 @@
+nombreDelPlato,Precio,horaInicio,horaFinal,alCuarto
+risotto,150,12:00,22:00,true
+pollo al horno,200,11:00,20:00,false
+spaghetti,80,10:00,22:00,true
+pasta Alfredo,120,12:00,21:00,true
+chilaquiles,90,09:00,22:00,true
+carne asada,180,13:00,22:00,false
+hamburguesa,100,11:00,23:00,true
+enchiladas,90,10:00,22:00,true
+pollo frito,120,11:00,20:00,false
+pescado frito,150,11:00,22:00,false
+filete de salmón,180,13:00,22:00,false
+ensalada César,90,09:00,21:00,true
+pizza,1200,08:00,09:00,true
+tacos al pastor,70,10:00,23:00,true
+hot dogs,80,09:00,23:00,true
+tostadas,70,09:00,22:00,true
+ceviche,150,12:00,23:00,false
+sushi,2000,07:00,10:00,false
+lasagna,1000,11:00,11:01,false

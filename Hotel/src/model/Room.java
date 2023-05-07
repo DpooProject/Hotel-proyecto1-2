@@ -1,11 +1,14 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Map;
 
 import prosecution.InventoryController;
 
 public class Room {
 	// Attributes
+	private Map<LocalDate, Double> Rates;
 	private String id;
 	private String ubication;
 	private String type;
@@ -14,7 +17,6 @@ public class Room {
 	Boolean kitchen;
 	int Bedsnumber;
 	String size;
-
 	// constructor
 	public Room(String id, String ubication, String type, Boolean balcony, Boolean view, Boolean kitchen,
 			int bedsnumber, String size) {
@@ -27,7 +29,6 @@ public class Room {
 		Bedsnumber = bedsnumber;
 		this.size = size;
 	}
-
 	// getters and setters
 
 	public String getId() {

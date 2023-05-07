@@ -1,16 +1,16 @@
-servicio,precio
-Alojamiento individual,100
-Alojamiento doble,150
-Desayuno buffet,20
-Acceso a gimnasio,15
-Acceso a piscina,10
-Servicio de habitación,5
+Service,rate
 Internet Wi-Fi,0
-Estacionamiento,12
-Lavandería,8
-Traslado al aeropuerto,25
-Alquiler de salón para eventos,500
-Catering para eventos,30
 Tour grupal por la ciudad,45
+Estacionamiento,400
+Alojamiento individual,100
+Traslado al aeropuerto,25
+Acceso a piscina,10
+Catering para eventos,30
+Alojamiento doble,150
 Clases de yoga en grupo,20
+Alquiler de salón para eventos,500
 Actividades recreativas grupales,60
+Acceso a gimnasio,150
+Desayuno buffet,200
+Servicio de habitación,5
+Lavandería,8

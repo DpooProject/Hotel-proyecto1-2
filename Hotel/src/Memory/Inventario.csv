@@ -1,3 +1,6 @@
 id,ubication,type,balcony,view,kitchen,bedsNumber,size
+yeso,elyes,elyeso,true,true,false,3,jaja
 01,piso de arriba,Suite,true,true,true,2,big
 02,planta baja,Suite doble,true,true,true,2,big
+pruebaopcion2,piso de arriba,Suite,true,true,true,2,big
+prueba,1,Suite,true,true,false,3,Big
