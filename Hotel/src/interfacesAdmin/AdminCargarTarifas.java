@@ -32,20 +32,8 @@ public class AdminCargarTarifas extends javax.swing.JFrame {
         PanelAzul1 = new javax.swing.JPanel();
         PanelAzul2 = new javax.swing.JPanel();
         Titulo = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        TextFieldFechaFinal = new javax.swing.JTextField();
-        TextFieldFechaIncial = new javax.swing.JTextField();
-        LabelDias = new javax.swing.JLabel();
-        LabelFechaI = new javax.swing.JLabel();
-        LabelFechaF = new javax.swing.JLabel();
-        LabelTipoCuarto2 = new javax.swing.JLabel();
-        RadioButtonLunes = new javax.swing.JRadioButton();
-        RadioButtonMartes = new javax.swing.JRadioButton();
-        RadioButtonMiercoles = new javax.swing.JRadioButton();
-        RadioButtonJueves = new javax.swing.JRadioButton();
-        RadioButtonViernes = new javax.swing.JRadioButton();
-        RadioButtonSabado = new javax.swing.JRadioButton();
-        RadioButtonDomingo = new javax.swing.JRadioButton();
+        TextFieldRuta = new javax.swing.JTextField();
+        LabelRutaArchivo = new javax.swing.JLabel();
         BotonSiguiente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,16 +61,16 @@ public class AdminCargarTarifas extends javax.swing.JFrame {
 
         Titulo.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         Titulo.setForeground(new java.awt.Color(255, 255, 255));
-        Titulo.setText("6. Cargar las tarifas por tipo de cuarto");
+        Titulo.setText("5.  Cargar tarifas por tipo de habitacion");
 
         javax.swing.GroupLayout PanelAzul2Layout = new javax.swing.GroupLayout(PanelAzul2);
         PanelAzul2.setLayout(PanelAzul2Layout);
         PanelAzul2Layout.setHorizontalGroup(
             PanelAzul2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAzul2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addContainerGap()
                 .addComponent(Titulo)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         PanelAzul2Layout.setVerticalGroup(
             PanelAzul2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,76 +82,17 @@ public class AdminCargarTarifas extends javax.swing.JFrame {
 
         Fondo.add(PanelAzul2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 650, 60));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el tipo de cuarto", "Suite", "Suite Doble", "Estandar" }));
-        Fondo.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
-
-        TextFieldFechaFinal.setText("AAAA/MM/DD");
-        TextFieldFechaFinal.addMouseListener(new java.awt.event.MouseAdapter() {
+        TextFieldRuta.setText("ingrese aca la ruta del archivo");
+        TextFieldRuta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TextFieldFechaFinalMouseClicked(evt);
+                TextFieldRutaMouseClicked(evt);
             }
         });
-        Fondo.add(TextFieldFechaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, -1, -1));
+        Fondo.add(TextFieldRuta, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
 
-        TextFieldFechaIncial.setText("AAAA/MM/DD");
-        TextFieldFechaIncial.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TextFieldFechaIncialMouseClicked(evt);
-            }
-        });
-        Fondo.add(TextFieldFechaIncial, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, -1, -1));
-
-        LabelDias.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        LabelDias.setText("Dias de la semana");
-        Fondo.add(LabelDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
-
-        LabelFechaI.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        LabelFechaI.setText("FECHA INICIAL");
-        Fondo.add(LabelFechaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
-
-        LabelFechaF.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        LabelFechaF.setText("FECHA FINAL");
-        Fondo.add(LabelFechaF, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
-
-        LabelTipoCuarto2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        LabelTipoCuarto2.setText("TIPO DE CUARTO");
-        Fondo.add(LabelTipoCuarto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
-
-        RadioButtonLunes.setText("Lunes");
-        RadioButtonLunes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RadioButtonLunesActionPerformed(evt);
-            }
-        });
-        Fondo.add(RadioButtonLunes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
-
-        RadioButtonMartes.setText("Martes");
-        Fondo.add(RadioButtonMartes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
-
-        RadioButtonMiercoles.setText("Miercoles");
-        RadioButtonMiercoles.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                RadioButtonMiercolesKeyReleased(evt);
-            }
-        });
-        Fondo.add(RadioButtonMiercoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
-
-        RadioButtonJueves.setText("Jueves");
-        Fondo.add(RadioButtonJueves, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, -1, -1));
-
-        RadioButtonViernes.setText("Viernes");
-        Fondo.add(RadioButtonViernes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
-
-        RadioButtonSabado.setText("Sabado");
-        RadioButtonSabado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RadioButtonSabadoActionPerformed(evt);
-            }
-        });
-        Fondo.add(RadioButtonSabado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, -1, -1));
-
-        RadioButtonDomingo.setText("Domingo");
-        Fondo.add(RadioButtonDomingo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, -1));
+        LabelRutaArchivo.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        LabelRutaArchivo.setText("RUTA ARCHIVO");
+        Fondo.add(LabelRutaArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
         BotonSiguiente.setBackground(new java.awt.Color(51, 102, 255));
         BotonSiguiente.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -182,43 +111,26 @@ public class AdminCargarTarifas extends javax.swing.JFrame {
                 BotonSiguienteActionPerformed(evt);
             }
         });
-        Fondo.add(BotonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, -1, -1));
+        Fondo.add(BotonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Fondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 326, Short.MAX_VALUE)
+            .addComponent(Fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextFieldFechaIncialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextFieldFechaIncialMouseClicked
+    private void TextFieldRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextFieldRutaMouseClicked
         // TODO add your handling code here:
-        TextFieldFechaIncial.setText("");
-    }//GEN-LAST:event_TextFieldFechaIncialMouseClicked
-
-    private void TextFieldFechaFinalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextFieldFechaFinalMouseClicked
-        // TODO add your handling code here:
-        TextFieldFechaFinal.setText("");
-    }//GEN-LAST:event_TextFieldFechaFinalMouseClicked
-
-    private void RadioButtonLunesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonLunesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RadioButtonLunesActionPerformed
-
-    private void RadioButtonSabadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonSabadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RadioButtonSabadoActionPerformed
-
-    private void RadioButtonMiercolesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RadioButtonMiercolesKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RadioButtonMiercolesKeyReleased
+        TextFieldRuta.setText("");
+    }//GEN-LAST:event_TextFieldRutaMouseClicked
 
     private void BotonSiguienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSiguienteMouseEntered
         // TODO add your handling code here:
@@ -251,26 +163,14 @@ public class AdminCargarTarifas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminCargarTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminCargarHabitaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminCargarTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminCargarHabitaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminCargarTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminCargarHabitaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminCargarTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminCargarHabitaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -287,22 +187,10 @@ public class AdminCargarTarifas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonSiguiente;
     private javax.swing.JPanel Fondo;
-    private javax.swing.JLabel LabelDias;
-    private javax.swing.JLabel LabelFechaF;
-    private javax.swing.JLabel LabelFechaI;
-    private javax.swing.JLabel LabelTipoCuarto2;
+    private javax.swing.JLabel LabelRutaArchivo;
     private javax.swing.JPanel PanelAzul1;
     private javax.swing.JPanel PanelAzul2;
-    private javax.swing.JRadioButton RadioButtonDomingo;
-    private javax.swing.JRadioButton RadioButtonJueves;
-    private javax.swing.JRadioButton RadioButtonLunes;
-    private javax.swing.JRadioButton RadioButtonMartes;
-    private javax.swing.JRadioButton RadioButtonMiercoles;
-    private javax.swing.JRadioButton RadioButtonSabado;
-    private javax.swing.JRadioButton RadioButtonViernes;
-    private javax.swing.JTextField TextFieldFechaFinal;
-    private javax.swing.JTextField TextFieldFechaIncial;
+    private javax.swing.JTextField TextFieldRuta;
     private javax.swing.JLabel Titulo;
-    private javax.swing.JComboBox<String> jComboBox1;
     // End of variables declaration//GEN-END:variables
 }
