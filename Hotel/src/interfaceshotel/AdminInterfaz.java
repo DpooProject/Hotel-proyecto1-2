@@ -6,12 +6,14 @@ package interfaceshotel;
 
 import java.awt.Color;
 
+import interfacesAdmin.AdminCrearHabitacion;
+
 /**
  *
  * @author user
  */
 public class AdminInterfaz extends javax.swing.JFrame {
-
+	String opcion_seleccionada;
     /**
      * Creates new form AdminInterfaz
      */
@@ -82,7 +84,7 @@ public class AdminInterfaz extends javax.swing.JFrame {
         Titulo.setText("ACCIONES");
         Background.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
 
-        ComboBoxAcciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione la opción que desea ejecutar", "1. Crear una nueva habitacion en el invenatario", "2. Cargar nuevas habitaciones en el inventario con un archivo .CSV", "3. Actualizar informacion de habitaciones del inventario con un archivo .CSV", "4. Cambiar tarifa de los servicios del hotel", "5. Editar menu del restaurante", "6. Cargar las tarifas por tipo de cuarto", "7. Cerrar sesion" }));
+        ComboBoxAcciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione la opción que desea ejecutar", "1. Crear una nueva habitacion en el invenatario", "2. Cargar nuevas habitaciones o actualizar existentes en el inventario con un archivo .CSV", "3. Cambiar tarifa de los servicios del hotel", "4. Editar menu del restaurante", "5. Cargar las tarifas por tipo de cuarto", "6. Cerrar sesion" }));
         ComboBoxAcciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboBoxAccionesActionPerformed(evt);
@@ -125,8 +127,11 @@ public class AdminInterfaz extends javax.swing.JFrame {
 
     private void ComboBoxAccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxAccionesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxAccionesActionPerformed
-
+    	this.opcion_seleccionada = (String) ComboBoxAcciones.getSelectedItem();
+    	
+	} 
+    
+	
     private void BotonSiguienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSiguienteMouseEntered
         // TODO add your handling code here:
         BotonSiguiente.setBackground(new Color(0,0,255));
@@ -139,12 +144,90 @@ public class AdminInterfaz extends javax.swing.JFrame {
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
         // TODO add your handling code here:
+    	if (this.opcion_seleccionada == "1. Crear una nueva habitacion en el invenatario") {
+    		dispose();
+    		try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                java.util.logging.Logger.getLogger(AdminCrearHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                java.util.logging.Logger.getLogger(AdminCrearHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                java.util.logging.Logger.getLogger(AdminCrearHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+                java.util.logging.Logger.getLogger(AdminCrearHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            //</editor-fold>
+
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new AdminCrearHabitacion().setVisible(true);
+                }
+            });
+		} else if (opcion_seleccionada == "2. Cargar nuevas habitaciones o actualizar existentes en el inventario con un archivo .CSV") {
+			System.out.println("seleccionaste la 2");
+			
+		} else if (opcion_seleccionada =="3. Cambiar tarifa de los servicios del hotel") {
+			System.out.println("cargando...");
+			
+		}
+		else if (opcion_seleccionada =="4. Editar menu del restaurante") {
+			System.out.println("cargando...");
+			
+		}
+		else if (opcion_seleccionada ==  "5. Cargar las tarifas por tipo de cuarto") {
+			System.out.println("cargando...");
+		}
+		else if (opcion_seleccionada ==  "6. Cerrar sesion" ) {
+			System.out.println("Cerrando su sesion ...");
+			
+			//closeApp();
+		} else {
+			System.out.println("Por favor seleccione una opción válida.");
+		}
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
      */
     
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdminInterfaz().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
@@ -155,4 +238,5 @@ public class AdminInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel titulo1;
     private javax.swing.JLabel titulo2;
     // End of variables declaration//GEN-END:variables
+    
 }
