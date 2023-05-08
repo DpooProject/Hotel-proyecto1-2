@@ -15,7 +15,7 @@ public class InventoryController {
 	public static HashMap<String, Reservation> reservationsInventory;
 	// methods
 	public void loadinventory() {
-		String csvFile = "src/Memory/inventario.csv";
+		String csvFile = "src/Memory/Inventario.csv";
 		String line;
 		String csvSplitBy = ",";
 		HashMap<String, Room> rooms = new HashMap<>();
@@ -106,7 +106,7 @@ public class InventoryController {
 
                 Reservation reserva = new Reservation(id, nombre, cantidad, dias, dia, mes, ano, false, false);
                 reservationsInventory.put(id, reserva);
-                System.out.println(id);
+                
             }
         } catch (IOException e) {
             e.printStackTrace();
