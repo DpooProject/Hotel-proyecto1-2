@@ -7,6 +7,7 @@ import prosecution.RecepcionistProcess;
 import java.sql.Date;
 
 import model.Room;
+import model.Bills;
 
 public class RecepcionistConsole {
 	//Attributes
@@ -48,11 +49,12 @@ public class RecepcionistConsole {
 					ejecutarCancelarReserva();
 				}else if (opcion_seleccionada == 4){
 					System.out.println("cargando...");
-				}else if (opcion_seleccionada == 5)
+					ejecutarRegistrarLlegada();
+				}else if (opcion_seleccionada == 5) {
 					System.out.println("cargando...");
-				else if (opcion_seleccionada == 6){
-					System.out.println("cargando...");
-				}else if (opcion_seleccionada == 7) {
+					ejecutarRegistrarSalida();
+				
+				}else if (opcion_seleccionada == 6) {
 					System.out.println("Cerrando su sesion ...");
 					closeapp();
 					continuar = false;
@@ -66,6 +68,10 @@ public class RecepcionistConsole {
 
 	}
 
+
+	
+
+	
 
 	public void ejecutarConsultarHabitacion() {
 		String id=Console.input("Ingrese el id de la habitacion que desea consultar");
@@ -106,11 +112,21 @@ public class RecepcionistConsole {
 			System.out.println("La reserva no fue realizada debido a que faltan menos de 2 días para el ingreso");}
 		this.updateRes=true;	
 	}
-
+	public void ejecutarRegistrarLlegada() {
+		String id = Console.input("Ingrese el id de la habitación");
+		RecepcionistProcess.registrarLlegada(id);
+		
+	}
+	public void ejecutarRegistrarSalida() {
+		String id = Console.input("Ingrese el id de la habitación");
+		RecepcionistProcess.registrarSalida(id);
+		
+	}
+	
+	
 	private void closeapp() {
 		if(this.updateRes==true) {
 			inveCont.recepUpdate();
-		}
-		
+		}		
 	}
 }

@@ -6,12 +6,19 @@ package interfaceshotel;
 
 import java.awt.Color;
 
+import interfacesRecepcionista.RecepcionistaCancelarReserva;
+import interfacesRecepcionista.RecepcionistaConsultarHabitacion;
+import interfacesRecepcionista.RecepcionistaRegistrarEntrada;
+import interfacesRecepcionista.RecepcionistaRegistrarSalida;
+import interfacesRecepcionista.RecepcionistaReservarHabitacion;
+
 /**
  *
  * @author user
  */
-public class GeneralInterfaz extends javax.swing.JFrame {
 
+public class GeneralInterfaz extends javax.swing.JFrame {
+String opcion_seleccionada;
     /**
      * Creates new form AdminInterfaz
      */
@@ -124,7 +131,9 @@ public class GeneralInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ComboBoxAccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxAccionesActionPerformed
-        // TODO add your handling code here:
+    	this.opcion_seleccionada = (String) ComboBoxAcciones.getSelectedItem();
+    	
+		
     }//GEN-LAST:event_ComboBoxAccionesActionPerformed
 
     private void BotonSiguienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSiguienteMouseEntered
@@ -138,9 +147,230 @@ public class GeneralInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonSiguienteMouseExited
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonSiguienteActionPerformed
+    	
+    	if (this.opcion_seleccionada == "1. Consultar habitación por ID​" ) {
+			dispose();
+			try {
+	            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+	                if ("Nimbus".equals(info.getName())) {
+	                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+	                    break;
+	                }
+	            }
+	        } catch (ClassNotFoundException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaConsultarHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (InstantiationException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaConsultarHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (IllegalAccessException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaConsultarHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaConsultarHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        }
+	        //</editor-fold>
 
+	        /* Create and display the form */
+	        java.awt.EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                new RecepcionistaConsultarHabitacion().setVisible(true);
+	            }
+	        });
+    	}
+    
+    else if (this.opcion_seleccionada == "2. Reservar habitación​") {
+			dispose();
+			try {
+	            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+	                if ("Nimbus".equals(info.getName())) {
+	                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+	                    break;
+	                }
+	            }
+	        } catch (ClassNotFoundException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaReservarHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (InstantiationException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaReservarHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (IllegalAccessException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaReservarHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaReservarHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        }
+	        //</editor-fold>
+	        //</editor-fold>
+
+	        /* Create and display the form */
+	        java.awt.EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                new RecepcionistaReservarHabitacion().setVisible(true);
+	            }
+	        });
+	    }
+			
+		else if (this.opcion_seleccionada == "3. Cancelar reserva​"){
+			dispose();
+			 try {
+		            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+		                if ("Nimbus".equals(info.getName())) {
+		                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+		                    break;
+		                }
+		            }
+		        } catch (ClassNotFoundException ex) {
+		            java.util.logging.Logger.getLogger(RecepcionistaCancelarReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		        } catch (InstantiationException ex) {
+		            java.util.logging.Logger.getLogger(RecepcionistaCancelarReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		        } catch (IllegalAccessException ex) {
+		            java.util.logging.Logger.getLogger(RecepcionistaCancelarReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+		            java.util.logging.Logger.getLogger(RecepcionistaCancelarReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		        }
+		        //</editor-fold>
+		        //</editor-fold>
+		        //</editor-fold>
+		        //</editor-fold>
+
+		        /* Create and display the form */
+		        java.awt.EventQueue.invokeLater(new Runnable() {
+		            public void run() {
+		                new RecepcionistaCancelarReserva().setVisible(true);
+		            }
+		        });
+		    }
+			
+			
+		else if (this.opcion_seleccionada == "5. Registrar entrada​"){
+			dispose();
+			try {
+	            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+	                if ("Nimbus".equals(info.getName())) {
+	                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+	                    break;
+	                }
+	            }
+	        } catch (ClassNotFoundException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaRegistrarEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (InstantiationException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaRegistrarEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (IllegalAccessException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaRegistrarEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaRegistrarEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        }
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+
+	        /* Create and display the form */
+	        java.awt.EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                new RecepcionistaRegistrarEntrada().setVisible(true);
+	            }
+	        });
+	    }
+			
+			
+		else if (this.opcion_seleccionada == "6. Registrar salida​") {
+			dispose();
+			try {
+	            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+	                if ("Nimbus".equals(info.getName())) {
+	                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+	                    break;
+	                }
+	            }
+	        } catch (ClassNotFoundException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaRegistrarSalida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (InstantiationException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaRegistrarSalida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (IllegalAccessException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaRegistrarSalida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+	            java.util.logging.Logger.getLogger(RecepcionistaRegistrarSalida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        }
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+	        //</editor-fold>
+
+	        /* Create and display the form */
+	        java.awt.EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                new RecepcionistaRegistrarSalida().setVisible(true);
+	            }
+	        });
+	    }
+		else {
+			dispose();
+			try {
+				for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+					if ("Nimbus".equals(info.getName())) {
+						javax.swing.UIManager.setLookAndFeel(info.getClassName());
+						break;
+					}
+				}
+			} catch (ClassNotFoundException ex) {
+				java.util.logging.Logger.getLogger(CerrarSesionInterfaz.class.getName())
+						.log(java.util.logging.Level.SEVERE, null, ex);
+			} catch (InstantiationException ex) {
+				java.util.logging.Logger.getLogger(CerrarSesionInterfaz.class.getName())
+						.log(java.util.logging.Level.SEVERE, null, ex);
+			} catch (IllegalAccessException ex) {
+				java.util.logging.Logger.getLogger(CerrarSesionInterfaz.class.getName())
+						.log(java.util.logging.Level.SEVERE, null, ex);
+			} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+				java.util.logging.Logger.getLogger(CerrarSesionInterfaz.class.getName())
+						.log(java.util.logging.Level.SEVERE, null, ex);
+			}
+			// </editor-fold>
+			// </editor-fold>
+
+			/* Create and display the form */
+			java.awt.EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					new CerrarSesionInterfaz().setVisible(true);
+				}
+			});
+		}}
     /**
      * @param args the command line arguments
      */
