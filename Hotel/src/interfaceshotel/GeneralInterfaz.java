@@ -6,10 +6,6 @@ package interfaceshotel;
 
 import java.awt.Color;
 
-import prosecution.InventoryController;
-import prosecution.RestaurantMenuController;
-import prosecution.ServicesInventoryController;
-
 /**
  *
  * @author user
