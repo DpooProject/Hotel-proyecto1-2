@@ -141,6 +141,7 @@ public class CerrarSesionInterfaz extends javax.swing.JFrame {
 
     private void BotonSiguiente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguiente1ActionPerformed
         // TODO add your handling code here:
+    	dispose();
     }//GEN-LAST:event_BotonSiguiente1ActionPerformed
 
     /**
