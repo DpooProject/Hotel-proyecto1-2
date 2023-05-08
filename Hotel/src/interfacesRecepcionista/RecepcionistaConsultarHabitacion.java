@@ -6,11 +6,16 @@ package interfacesRecepcionista;
 
 import java.awt.Color;
 
+import interfaceshotel.AdminInterfaz;
+import interfaceshotel.EmployerInterfaz;
+import prosecution.RecepcionistProcess;
+
 /**
  *
  * @author user
  */
 public class RecepcionistaConsultarHabitacion extends javax.swing.JFrame {
+	String idIngresada;
 
     /**
      * Creates new form RecepcionistaConsultarHabitacion
@@ -145,8 +150,10 @@ public class RecepcionistaConsultarHabitacion extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonSiguienteMouseExited
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonSiguienteActionPerformed
+    	String roomId = TextFieldID.getText();
+    	RecepcionistProcess.consultarHabitación(roomId);
+    	dispose();
+    }
 
     /**
      * @param args the command line arguments

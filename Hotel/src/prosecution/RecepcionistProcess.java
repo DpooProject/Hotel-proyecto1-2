@@ -1,6 +1,7 @@
 package prosecution;
 
 import model.Room;
+import model.Bills;
 import model.Reservation;
 import prosecution.InventoryController;
 import java.util.*;
@@ -29,7 +30,7 @@ public class RecepcionistProcess {
 
         if (ano==anoa){
             if (mes==mesa){
-                if ((diaa-dia)<=2){
+                if ((diaa-dia)>=2){
                     cancelado = true;}
                 else if(mes>mesa){
                     cancelado = true;}}}                  
@@ -42,6 +43,18 @@ public class RecepcionistProcess {
         
         return cancelado;
     }
+
+	
+	public static void registrarLlegada(String id) {
+		Reservation value = reservations.get(id);
+        value.setLlegada(true);
+		
+	}
+
+	public static void registrarSalida(String id) {
+		Reservation value = reservations.get(id);
+        value.setSalida(true);
+	}
     
 
 }

@@ -5,6 +5,7 @@
 package interfacesRecepcionista;
 
 import java.awt.Color;
+import prosecution.RecepcionistProcess;
 
 /**
  *
@@ -142,7 +143,9 @@ public class RecepcionistaCancelarReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonSiguienteMouseExited
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
-        // TODO add your handling code here:
+       String id = TextFieldID1.getText();
+       RecepcionistProcess.CancelarReserva(id, 1, 2, 2023);
+       dispose();
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
     /**

@@ -5,6 +5,7 @@
 package interfacesRecepcionista;
 
 import java.awt.Color;
+import prosecution.RecepcionistProcess;
 
 /**
  *
@@ -151,8 +152,10 @@ public class RecepcionistaRegistrarEntrada extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonSiguiente1MouseExited
 
     private void BotonSiguiente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguiente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonSiguiente1ActionPerformed
+        String id = TextFieldID1.getText();
+        RecepcionistProcess.registrarLlegada(id);
+        dispose();
+        }//GEN-LAST:event_BotonSiguiente1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,6 +5,7 @@
 package interfacesRecepcionista;
 
 import java.awt.Color;
+import prosecution.RecepcionistProcess;
 
 /**
  *
@@ -166,7 +167,12 @@ public class RecepcionistaReservarHabitacion extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonSiguienteMouseExited
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
-        // TODO add your handling code here:
+        String nombre = TextFieldNombre.getText();
+        int dias = SliderNumeroDias.getValue();
+        int personas = ComboBoxNumeroPersonas.getItemCount();
+        
+        RecepcionistProcess.reservarHabitacion(" ", nombre, personas, dias, 1, 1, 2023);
+        dispose();
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
     /**
