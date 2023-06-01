@@ -8,6 +8,7 @@ import java.awt.Color;
 
 import interfacesGeneral.GeneralRegistrarConsumo;
 import interfacesGeneral.GeneralRegistrarPago;
+import interfacesGeneral.Pagotarjeta;
 
 /**
  *
@@ -79,7 +80,7 @@ public class EmployerInterfaz extends javax.swing.JFrame {
 
 		ComboBoxAcciones.setModel(new javax.swing.DefaultComboBoxModel<>(
 				new String[] { "Seleccione la opción que desea ejecutar", "1. Registrar  consumo",
-						"2. Registrar pagos ( unicamente si se paga de contado)​", "3. Cerrar sesión" }));
+						"2. Registrar pagos ( unicamente si se paga de contado)​", "3. Pago con tarjeta","4. Cerrar sesión" }));
 		ComboBoxAcciones.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				ComboBoxAccionesActionPerformed(evt);
@@ -196,7 +197,35 @@ public class EmployerInterfaz extends javax.swing.JFrame {
 					new GeneralRegistrarPago().setVisible(true);
 				}
 			});
-		} else {
+		} else if (elementoSeleccionado ==  "3. Pago con tarjeta") {
+			dispose();
+			try {
+	            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+	                if ("Nimbus".equals(info.getName())) {
+	                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+	                    break;
+	                }
+	            }
+	        } catch (ClassNotFoundException ex) {
+	            java.util.logging.Logger.getLogger(Pagotarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (InstantiationException ex) {
+	            java.util.logging.Logger.getLogger(Pagotarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (IllegalAccessException ex) {
+	            java.util.logging.Logger.getLogger(Pagotarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+	            java.util.logging.Logger.getLogger(Pagotarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        }
+	        //</editor-fold>
+	        //</editor-fold>
+
+	        /* Create and display the form */
+	        java.awt.EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                new Pagotarjeta().setVisible(true);
+	            }
+	        });
+		}
+		else {
 			dispose();
 			try {
 				for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

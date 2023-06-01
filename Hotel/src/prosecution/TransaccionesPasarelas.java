@@ -6,7 +6,8 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
 public class TransaccionesPasarelas {
-    public void realizarTransaccion(String pasarela, double monto, int Numero_tarjeta) {
+	
+    public void Transaccion(String pasarela, int monto, int Numero_tarjeta) {
         String nombreArchivo = obtenerNombreArchivo(pasarela);
         String horaTransaccion = LocalDateTime.now().toString();
         String resultado = "aprovada";
@@ -26,16 +27,16 @@ public class TransaccionesPasarelas {
 
         switch (pasarela.toLowerCase()) {
             case "payu":
-                nombreArchivo = "src/memory/transacciones_payu.txt";
+                nombreArchivo = "src/Memory/transacciones_payu.txt";
                 break;
             case "paypal":
-                nombreArchivo = "src/memory/transacciones_paypal.txt";
+                nombreArchivo = "src/Memory/transacciones_paypal.txt";
                 break;
             case "sire":
-                nombreArchivo = "src/memory/transacciones_sire.txt";
+                nombreArchivo = "src/Memory/transacciones_sire.txt";
                 break;
             default:
-                nombreArchivo = "src/memory/transacciones_desconocida.txt";
+                nombreArchivo = "src/Memory/transacciones_desconocida.txt";
                 break;
         }
 
