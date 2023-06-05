@@ -11,7 +11,7 @@ import model.Inventory;
 import model.Room;
 import model.Reservation;
 public class InventoryController {
-	static Inventory inventory; //aqui queda guardado
+	public static Inventory inventory; //aqui queda guardado
 	public static HashMap<String, Reservation> reservationsInventory;
 	// methods
 	public void loadinventory() {
