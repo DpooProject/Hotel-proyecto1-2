@@ -23,13 +23,15 @@ public class AdminInterfaz extends javax.swing.JFrame {
 	String opcion_seleccionada;
 	private static InventoryController inveCont ;
 	private static ServicesInventoryController servCont;
+	private static RestaurantMenuController restCont;
 
 	/**
 	 * Creates new form AdminInterfaz
 	 */
-	public AdminInterfaz(InventoryController inveCont,ServicesInventoryController servCont) {
+	public AdminInterfaz(InventoryController inveCont,ServicesInventoryController servCont,RestaurantMenuController restCont) {
 		AdminInterfaz.inveCont=inveCont;
 		AdminInterfaz.servCont=servCont;
+		AdminInterfaz.restCont=restCont;
 		initComponents();
 	}
 
@@ -391,7 +393,7 @@ public class AdminInterfaz extends javax.swing.JFrame {
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new AdminInterfaz(inveCont,servCont).setVisible(true);
+				new AdminInterfaz(inveCont,servCont,restCont).setVisible(true);
 			}
 		});
 	}
