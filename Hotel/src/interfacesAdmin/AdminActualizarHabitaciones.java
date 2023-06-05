@@ -6,16 +6,20 @@ package interfacesAdmin;
 
 import java.awt.Color;
 
+import interfaceshotel.LoginInterfaz;
+import prosecution.InventoryController;
+
 /**
  *
  * @author user
  */
 public class AdminActualizarHabitaciones extends javax.swing.JFrame {
-
+	static InventoryController inveCont;
     /**
      * Creates new form AdminCrearHabitacion
      */
-    public AdminActualizarHabitaciones() {
+    public AdminActualizarHabitaciones(InventoryController inveCont) {
+    	AdminActualizarHabitaciones.inveCont=inveCont;
         initComponents();
     }
 
@@ -61,7 +65,7 @@ public class AdminActualizarHabitaciones extends javax.swing.JFrame {
 
         Titulo.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         Titulo.setForeground(new java.awt.Color(255, 255, 255));
-        Titulo.setText("3. Actualizar información de habitaciones con un archivo .CSV");
+        Titulo.setText("3. Cargar información de habitaciones con un archivo .CSV");
 
         javax.swing.GroupLayout PanelAzul2Layout = new javax.swing.GroupLayout(PanelAzul2);
         PanelAzul2.setLayout(PanelAzul2Layout);
@@ -82,7 +86,7 @@ public class AdminActualizarHabitaciones extends javax.swing.JFrame {
 
         Fondo.add(PanelAzul2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 650, 60));
 
-        TextFieldRuta.setText("ingrese aca la ruta del archivo");
+        TextFieldRuta.setText("ingrese aca el nombre del archivo");
         TextFieldRuta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TextFieldRutaMouseClicked(evt);
@@ -91,13 +95,13 @@ public class AdminActualizarHabitaciones extends javax.swing.JFrame {
         Fondo.add(TextFieldRuta, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
 
         LabelRutaArchivo.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        LabelRutaArchivo.setText("RUTA ARCHIVO");
+        LabelRutaArchivo.setText("Nombre del Archivo");
         Fondo.add(LabelRutaArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
         BotonSiguiente.setBackground(new java.awt.Color(51, 102, 255));
         BotonSiguiente.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         BotonSiguiente.setForeground(new java.awt.Color(255, 255, 255));
-        BotonSiguiente.setText("Actualizar");
+        BotonSiguiente.setText("Cargar");
         BotonSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 BotonSiguienteMouseEntered(evt);
@@ -144,6 +148,34 @@ public class AdminActualizarHabitaciones extends javax.swing.JFrame {
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
         // TODO add your handling code here:
+    	String csvName = TextFieldRuta.getText();
+    	AdminActualizarHabitaciones.inveCont.addWithCsv(csvName);
+    	AdminActualizarHabitaciones.inveCont.update();
+    	dispose();
+    	 try {
+             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                 if ("Nimbus".equals(info.getName())) {
+                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                     break;
+                 }
+             }
+         } catch (ClassNotFoundException ex) {
+             java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+         } catch (InstantiationException ex) {
+             java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+         } catch (IllegalAccessException ex) {
+             java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+             java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+         }
+         //</editor-fold>
+
+         /* Create and display the form */
+         java.awt.EventQueue.invokeLater(new Runnable() {
+             public void run() {
+                 new LoginInterfaz().setVisible(true);
+             }
+         });
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
     /**
@@ -183,7 +215,7 @@ public class AdminActualizarHabitaciones extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminActualizarHabitaciones().setVisible(true);
+                new AdminActualizarHabitaciones(AdminActualizarHabitaciones.inveCont).setVisible(true);
             }
         });
     }

@@ -6,6 +6,13 @@ package interfaceshotel;
 
 import java.awt.Color;
 
+import console.Begginer;
+import interfacesGeneral.GeneralRegistrarConsumo;
+import prosecution.InventoryController;
+import prosecution.Login;
+import prosecution.RestaurantMenuController;
+import prosecution.ServicesInventoryController;
+
 /**
  *
  * @author user
@@ -164,6 +171,105 @@ public class LoginInterfaz extends javax.swing.JFrame {
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
         // TODO add your handling code here:
+    	dispose();
+    	Begginer beginner= new Begginer();
+    	Login log= new Login();
+    	beginner.beginLogin();
+		InventoryController inveCont=beginner.beginInventory();
+		ServicesInventoryController servCont=beginner.beginServiceInventory();
+		RestaurantMenuController restCont=beginner.beginRestaurantMenu();
+		beginner.beginReservations();
+		String login = textFieldUsuario.getText();
+		char[] password = textFieldPassword.getPassword();
+		String passwordString = new String(password);
+		String tipo =log.hacerlogin(login,passwordString);
+		if (tipo.equals("admin")) {
+			try {
+				for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+					if ("Nimbus".equals(info.getName())) {
+						javax.swing.UIManager.setLookAndFeel(info.getClassName());
+						break;
+					}
+				}
+			} catch (ClassNotFoundException ex) {
+				java.util.logging.Logger.getLogger(GeneralRegistrarConsumo.class.getName())
+						.log(java.util.logging.Level.SEVERE, null, ex);
+			} catch (InstantiationException ex) {
+				java.util.logging.Logger.getLogger(GeneralRegistrarConsumo.class.getName())
+						.log(java.util.logging.Level.SEVERE, null, ex);
+			} catch (IllegalAccessException ex) {
+				java.util.logging.Logger.getLogger(GeneralRegistrarConsumo.class.getName())
+						.log(java.util.logging.Level.SEVERE, null, ex);
+			} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+				java.util.logging.Logger.getLogger(GeneralRegistrarConsumo.class.getName())
+						.log(java.util.logging.Level.SEVERE, null, ex);
+			}
+			// </editor-fold>
+
+			/* Create and display the form */
+			java.awt.EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					new AdminInterfaz(inveCont,servCont).setVisible(true);
+				}
+			});
+		    
+		} else if (tipo.equals("general")) {
+			try {
+				for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+					if ("Nimbus".equals(info.getName())) {
+						javax.swing.UIManager.setLookAndFeel(info.getClassName());
+						break;
+					}
+				}
+			} catch (ClassNotFoundException ex) {
+				java.util.logging.Logger.getLogger(AdminInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null,
+						ex);
+			} catch (InstantiationException ex) {
+				java.util.logging.Logger.getLogger(AdminInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null,
+						ex);
+			} catch (IllegalAccessException ex) {
+				java.util.logging.Logger.getLogger(AdminInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null,
+						ex);
+			} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+				java.util.logging.Logger.getLogger(AdminInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null,
+						ex);
+			}
+			// </editor-fold>
+
+			/* Create and display the form */
+			java.awt.EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					new EmployerInterfaz().setVisible(true);
+				}
+			});
+		} else if (tipo.equals("recepcion")) {
+			try {
+	            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+	                if ("Nimbus".equals(info.getName())) {
+	                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+	                    break;
+	                }
+	            }
+	        } catch (ClassNotFoundException ex) {
+	            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (InstantiationException ex) {
+	            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (IllegalAccessException ex) {
+	            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+	            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        }
+	        //</editor-fold>
+
+	        /* Create and display the form */
+	        java.awt.EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                new GeneralInterfaz().setVisible(true);
+	            }
+	        });
+		}
+		
+    
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
     private void BotonSiguienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSiguienteMouseEntered
@@ -185,6 +291,8 @@ public class LoginInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
         textFieldPassword.setText("");
     }//GEN-LAST:event_textFieldPasswordMouseClicked
+    
+    
 
     /**
      * @param args the command line arguments

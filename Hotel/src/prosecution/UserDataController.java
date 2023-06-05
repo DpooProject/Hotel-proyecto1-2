@@ -19,13 +19,7 @@ public class UserDataController {
 		userData.put(name, userDataList);
 		
 	}
-	public void print() {
-		for (Map.Entry<String, List<String>> entry : userData.entrySet()) {
-		    String key = entry.getKey();
-		    List<String> value = entry.getValue();
-		    System.out.println(key + " -> " + value);
-		}
-	}
+	
 	public String getUserType(String username, String password) { //preguntar al monitor
 	    
 		if (userData.containsKey(username)) {
@@ -57,7 +51,7 @@ public class UserDataController {
         }
         reader.close();
         
-        general.pri();
+     
         
         
     }

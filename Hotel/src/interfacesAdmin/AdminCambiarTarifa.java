@@ -6,17 +6,25 @@ package interfacesAdmin;
 
 import java.awt.Color;
 
+import javax.swing.JOptionPane;
+
+import interfaceshotel.LoginInterfaz;
+import prosecution.ServicesInventoryController;
+
 /**
  *
  * @author user
  */
 public class AdminCambiarTarifa extends javax.swing.JFrame {
-
+	private static ServicesInventoryController servCont;
+	String name;
+	int price;
     /**
      * Creates new form AdminCrearHabitacion
      */
-    public AdminCambiarTarifa() {
+    public AdminCambiarTarifa(ServicesInventoryController servCont) {
         initComponents();
+        AdminCambiarTarifa.servCont=servCont;
     }
 
     /**
@@ -88,7 +96,14 @@ public class AdminCambiarTarifa extends javax.swing.JFrame {
         jLabel1.setText("NUEVO PRECIO");
         Fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
 
-        ComboBoxServicios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el servicio que desea cambiar", "Spa​", "Precio de habitación​", "Gimnasio" }));
+        ComboBoxServicios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el servicio que desea cambiar","Alojamiento individual",
+"Alojamiento doble","Desayuno buffet","Acceso a gimnasio","Acceso a piscina","Servicio de habitación","Internet Wi-Fi","Estacionamiento","Lavandería"
+        		,"Traslado al aeropuerto"
+        		,"Alquiler de salón para eventos"
+        		,"Catering para eventos"
+        		,"Tour grupal por la ciudad"
+        		,"Clases de yoga en grupo"
+        		,"Actividades recreativas grupales" }));
         Fondo.add(ComboBoxServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
 
         TextFieldPrecio.setText("ingrese acá el nuevo precio del servicio");
@@ -153,6 +168,43 @@ public class AdminCambiarTarifa extends javax.swing.JFrame {
 
     private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
         // TODO add your handling code here:
+    	this.name = ComboBoxServicios.getSelectedItem().toString();
+    	try {
+            this.price = (int) Double.parseDouble(TextFieldPrecio.getText());
+        } catch (NumberFormatException e) {
+            // Manejar la excepción si el valor ingresado no es un número válido
+            // Por ejemplo, mostrar un mensaje de error
+            JOptionPane.showMessageDialog(this, "Ingrese un valor numérico válido para el precio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    	AdminCambiarTarifa.servCont.changeRate(name, price);
+    	AdminCambiarTarifa.servCont.update();
+        dispose();
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new LoginInterfaz().setVisible(true);
+            }
+        });
+    	
     }//GEN-LAST:event_BotonSiguienteActionPerformed
 
     /**
@@ -186,7 +238,7 @@ public class AdminCambiarTarifa extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminCambiarTarifa().setVisible(true);
+                new AdminCambiarTarifa(servCont).setVisible(true);
             }
         });
     }

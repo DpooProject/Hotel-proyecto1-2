@@ -106,10 +106,10 @@ public class AdminEditarMenu extends javax.swing.JFrame {
         Fondo.add(LabelRutaPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, -1));
 
         LabelNumero.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        LabelNumero.setText("Numero del Plato");
+        LabelNumero.setText("Hora inicio de disponibilidad");
         Fondo.add(LabelNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
-        TextFieldNumero.setText("ingrese aca el numero del plato");
+        TextFieldNumero.setText("ingrese aca la Hora inicio de disponibilidad");
         TextFieldNumero.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TextFieldNumeroMouseClicked(evt);
@@ -135,10 +135,10 @@ public class AdminEditarMenu extends javax.swing.JFrame {
         Fondo.add(TextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
 
         LabelDescripcion.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        LabelDescripcion.setText("Descripción del Plato");
+        LabelDescripcion.setText("Hora final de disponibilidad");
         Fondo.add(LabelDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
-        TextFieldDescripcion.setText("ingrese aca la descripcion del plato");
+        TextFieldDescripcion.setText("ingrese aqui la Hora final de disponibilidad");
         TextFieldDescripcion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TextFieldDescripcionMouseClicked(evt);

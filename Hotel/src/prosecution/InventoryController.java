@@ -15,7 +15,7 @@ public class InventoryController {
 	public static HashMap<String, Reservation> reservationsInventory;
 	// methods
 	public void loadinventory() {
-		String csvFile = "src/Memory/inventario.csv";
+		String csvFile = "src/Memory/Inventario.csv";
 		String line;
 		String csvSplitBy = ",";
 		HashMap<String, Room> rooms = new HashMap<>();
@@ -36,7 +36,7 @@ public class InventoryController {
 				Boolean kitchen = Boolean.parseBoolean(data[5]);
 				int bedsNumber = Integer.parseInt(data[6]);
 				String size = data[7];
-				Room habitacion = new Room(id, ubication, type, balcony, view, kitchen, bedsNumber, size);
+				Room habitacion = new Room(id, ubication, type, balcony, view, kitchen, bedsNumber, size, 25, true);
 				rooms.put(id, habitacion);
 			}
 		} }catch (IOException e) {
@@ -49,7 +49,7 @@ public class InventoryController {
 	public void createRoom(String id, String ubication, String type, Boolean balcony, Boolean view,
 			Boolean kitchen, int numberbeds, String size) {
 		Room newRoom= new Room(id,ubication,type,  balcony,  view,
-				kitchen, numberbeds,  size);
+				kitchen, numberbeds,  size,25, true);
 		
 		inventory.addRoom(id, newRoom);
 	}
@@ -75,7 +75,7 @@ public class InventoryController {
 				Boolean kitchen = Boolean.parseBoolean(data[5]);
 				int bedsNumber = Integer.parseInt(data[6]);
 				String size = data[7];
-				Room newRoom = new Room(id, ubication, type, balcony, view, kitchen, bedsNumber, size);
+				Room newRoom = new Room(id, ubication, type, balcony, view, kitchen, bedsNumber, size, 25, true);
 				this.inventory.addRoom(id, newRoom);
 			}
 		} }catch (IOException e) {
@@ -106,7 +106,7 @@ public class InventoryController {
 
                 Reservation reserva = new Reservation(id, nombre, cantidad, dias, dia, mes, ano, false, false);
                 reservationsInventory.put(id, reserva);
-                System.out.println(id);
+                
             }
         } catch (IOException e) {
             e.printStackTrace();

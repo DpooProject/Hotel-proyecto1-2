@@ -1,6 +1,12 @@
 id,ubication,type,balcony,view,kitchen,bedsNumber,size
 yeso,elyes,elyeso,true,true,false,3,jaja
 01,piso de arriba,Suite,true,true,true,2,big
+pruebaaaaaaaaaa,Suite,Pequeña​,true,false,false,2,pruebaaaaaaaaaa
+diosssssss,Primer piso​,Suite,false,false,false,1,Pequeña​
 02,planta baja,Suite doble,true,true,true,2,big
 pruebaopcion2,piso de arriba,Suite,true,true,true,2,big
+siuuuuuuuuuuuuuuuuuuuuuuu,piso de arriba,Suite,true,true,true,2,big
+asad,Primer piso​,Seleccione el tipo de habitacion,false,false,false,2,Pequeña​
 prueba,1,Suite,true,true,false,3,Big
+id,Suite,Pequeña​,false,false,true,2,id
+qwwwwwwwwww,Segundo piso​,Seleccione el tipo de habitacion,false,false,false,2,Pequeña​
